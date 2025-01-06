@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+            position: relative;
+            height: 100vh;
+        }
+        div {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+        .div1 {
+            background-color: aqua;
+            transition: 0.3s;
+            opacity: 0.7;
+            z-index: 100;
+        }
+        .div2 {
+            background-color: blueviolet;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+<script>
+    // Collision detection function
+    function isCollision(d1,d2) {
+       const one = d1.getBoundingClientRect()
+       const two = d2.getBoundingClientRect()
+
+       if(one.x+one.width >= two.x && one.x <= two.x + two.width && one.y <= two.y + two.height){
+        alert("collision Detected!!!")
+       }
+    }
+
+    let LeftRight = 0;
+    let UpDown = 0;
+    const div1 = document.querySelector(".div1");
+    const div2 = document.querySelector(".div2");
+
+    
+
+   
+
+    // Event listener for keypress to move div1
+    document.addEventListener("keydown", e => {
+        if (e.key === "ArrowRight") {
+            LeftRight += 1;
+            div1.style.left = LeftRight + "%";
+        }
+        if (e.key === "ArrowLeft") {
+            LeftRight -= 1;
+            div1.style.left = LeftRight + "%";
+        }
+        if (e.key === "ArrowUp") {
+            UpDown -= 1;
+            div1.style.top = ${UpDown}%;
+        }
+        if (e.key === "ArrowDown") {
+            UpDown += 1;
+            div1.style.top = UpDown + "%";
+        }
+
+        isCollision(div1,div2)
+
+    });
+</script>
+</body>
+</html>

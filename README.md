@@ -1,1 +1,1 @@
-# CollisionDetection
+# CollisionDetection! This HTML file creates an interactive webpage where a user can move a square (div1) using arrow keys. When div1 collides with another square (div2), an alert message notifies the user of the collision.
